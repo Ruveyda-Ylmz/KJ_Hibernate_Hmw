@@ -18,9 +18,14 @@ public class Ogretmen extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  Long id;
+
     @Embedded
     private KisiselBilgiler kisisel_Bilgiler;
+
+    @Enumerated(EnumType.STRING)
     private EBrans brands;
+
+    @Column(name = "ise_baslama_tarihi")
     private Long ise_Baslama_Tarihi;
 
 }

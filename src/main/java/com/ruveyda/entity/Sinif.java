@@ -18,6 +18,7 @@ public class Sinif extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "sinif_adi")
     private String sinif_Adi;
 
 

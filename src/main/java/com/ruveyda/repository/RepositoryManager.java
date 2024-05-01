@@ -19,6 +19,11 @@ import java.util.Optional;
     public class RepositoryManager<T extends BaseEntity,ID> implements ICrud<T,ID>{
         private final EntityManagerFactory emf;
         private EntityManager em;
+
+        public EntityManager getEm() {
+            return em;
+        }
+
         private final T t;
         public RepositoryManager(T t){
             emf = Persistence.createEntityManagerFactory("CRM");
@@ -41,15 +46,16 @@ import java.util.Optional;
         public T save(T entity) {
             try{
                 openSession();
-         entity.setCreateAt(System.currentTimeMillis());
-         entity.setUpdateAt(System.currentTimeMillis());
-         entity.setState(1);
+                entity.setCreateAt(System.currentTimeMillis());
+                entity.setUpdateAt(System.currentTimeMillis());
+                entity.setState(1);
                 em.persist(entity); //transient state -> persistent state
                 closeSession();
             }catch (Exception exception){
                 if (em.isOpen())
                     closeSession();
             }
+
             return  entity;
         }
 
@@ -115,11 +121,14 @@ import java.util.Optional;
 
         @Override
         public List<T> findAll() {
+            openSession();
             CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
             CriteriaQuery<T> criteriaQuery = (CriteriaQuery<T>) criteriaBuilder.createQuery(t.getClass()); // select * from tblsecmen where id=? ->
             Root<T> root = (Root<T>) criteriaQuery.from(t.getClass());
             criteriaQuery.select(root);
-            return em.createQuery(criteriaQuery).getResultList();
+            List<T> list = em.createQuery(criteriaQuery).getResultList();
+            closeSession();
+            return list;
         }
 
         @Override

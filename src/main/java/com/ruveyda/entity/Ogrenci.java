@@ -20,6 +20,8 @@ public class Ogrenci extends BaseEntity{
     private  Long id;
     @Embedded
     private KisiselBilgiler kisiselBilgiler;
+    @Column(name = "dogum_tarihi")
     private Long dogum_Tarihi;
+    @Column(name = "sinif_id")
     private Long Sinif_Id;
 }

@@ -15,6 +15,6 @@ import lombok.NoArgsConstructor;
 public class KisiselBilgiler {
     private String isim;
     private  String soyisim;
-    @Column(length = 11)
+    @Column(length = 11,name = "tc_kimlik")
     private String tcKimlik;
 }

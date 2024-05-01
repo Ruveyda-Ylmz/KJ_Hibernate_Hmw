@@ -5,6 +5,8 @@ import com.ruveyda.entity.Sinif;
 import com.ruveyda.repository.OgrenciRepository;
 import com.ruveyda.repository.SinifRepository;
 
+import java.util.List;
+
 public class SinifService {
     SinifRepository sinifRepository;
 
@@ -14,5 +16,8 @@ public class SinifService {
 
     public Sinif saveSinif(Sinif sinif){
         return sinifRepository.save(sinif);
+    }
+    public List<Sinif> findAll(){
+        return sinifRepository.findAll();
     }
 }
