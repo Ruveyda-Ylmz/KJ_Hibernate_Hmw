@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group = 'com.ruveyda'
+version = '1.0-SNAPSHOT'
+
+repositories { //gradle repository olarak maven dan besleniyor
+    mavenCentral() //maven repositoryi adresliyo(https://mvnrepository.com/)
+}
+
+//bağımlılıklar yine buraya eklenecek
+dependencies {
+    //rest import'ları
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // https://mvnrepository.com/artifact/org.postgresql/postgresql
+    implementation 'org.postgresql:postgresql:42.6.0'
+
+    // https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+
+}
+
+test {
+    useJUnitPlatform()
+}
