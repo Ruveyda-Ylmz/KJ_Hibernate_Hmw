@@ -10,7 +10,10 @@
 
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 
-        <class>com.ruveyda.entity.Deneme</class>
+        <class>com.ruveyda.entity.Ogrenci</class>
+        <class>com.ruveyda.entity.Ogretmen</class>
+        <class>com.ruveyda.entity.SinifOgretmenler</class>
+        <class>com.ruveyda.entity.Sinif</class>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/KJHwDB"/>

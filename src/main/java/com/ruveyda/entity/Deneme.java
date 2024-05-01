@@ -12,11 +12,12 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@Entity
+@Entity //varlık sınıfım Deneme olduğunu belirtir
 public class Deneme extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    //id ve name kolonlarım var
+    private Long id; //id kolonum IDENTITY(otomatik kendi arka atamasını yapcak)
     private String name;
 
 }

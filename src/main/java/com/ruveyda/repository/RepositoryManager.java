@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+    //RepositoryManager = Veri Deposu Yöneticisi
     public class RepositoryManager<T extends BaseEntity,ID> implements ICrud<T,ID>{
         private final EntityManagerFactory emf;
         private EntityManager em;
